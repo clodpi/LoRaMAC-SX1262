@@ -35,7 +35,7 @@
  * Antenna switch GPIO pins objects
  */
 Gpio_t AntPow;
-Gpio_t DeviceSel;
+//Gpio_t DeviceSel;
 
 /*!
  * Debug GPIO pins objects
@@ -50,7 +50,7 @@ void SX126xIoInit( void )
     GpioInit( &SX126x.Spi.Nss, RADIO_NSS, PIN_OUTPUT, PIN_PUSH_PULL, PIN_PULL_UP, 1 );
     GpioInit( &SX126x.BUSY, RADIO_BUSY, PIN_INPUT, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
     GpioInit( &SX126x.DIO1, RADIO_DIO_1, PIN_INPUT, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
-    GpioInit( &DeviceSel, RADIO_DEVICE_SEL, PIN_INPUT, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
+    //GpioInit( &DeviceSel, RADIO_DEVICE_SEL, PIN_INPUT, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
 }
 
 void SX126xIoIrqInit( DioIrqHandler dioIrq )
@@ -77,7 +77,8 @@ void SX126xIoTcxoInit( void )
 {
     CalibrationParams_t calibParam;
 
-    SX126xSetDio3AsTcxoCtrl( TCXO_CTRL_1_7V, SX126xGetBoardTcxoWakeupTime( ) << 6 ); // convert from ms to SX126x time base
+    //SX126xSetDio3AsTcxoCtrl( TCXO_CTRL_1_7V, SX126xGetBoardTcxoWakeupTime( ) << 6 ); // convert from ms to SX126x time base
+    SX126xSetDio3AsTcxoCtrl(TCXO_CTRL_3_0V, SX126xGetBoardTcxoWakeupTime() << 6);
     calibParam.Value = 0x7F;
     SX126xCalibrate( calibParam );
 }
@@ -254,14 +255,15 @@ void SX126xSetRfTxPower( int8_t power )
 
 uint8_t SX126xGetDeviceId( void )
 {
-    if( GpioRead( &DeviceSel ) == 1 )
+    /*if( GpioRead( &DeviceSel ) == 1 )
     {
         return SX1261;
     }
     else
     {
         return SX1262;
-    }
+    }*/
+    return SX1262;
 }
 
 void SX126xAntSwOn( void )

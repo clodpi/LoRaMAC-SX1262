@@ -11,6 +11,7 @@
         //     OSX     : /usr/local
         // It is required to uncomment and to fill the following line.
         //"TOOLCHAIN_PREFIX":"/path/to/toolchain",
+        "TOOLCHAIN_PREFIX": "C:/Program Files (x86)/GNU Tools ARM Embedded/9 2019-q4-major",
 
         // In case your OpenOCD is not installed under the default path:
         //     Windows : C:/openocd/bin/openocd.exe
@@ -18,6 +19,7 @@
         //     OSX     : /usr/local/bin/openocd
         // Please uncomment the following line and fill it accordingly.
         //"OPENOCD_BIN":"C:/openocd/bin/openocd.exe",
+        "OPENOCD_BIN": "C:/openocd/bin/openocd.exe",
 
         // Specifies the path to the CMAKE toolchain file.
         "CMAKE_TOOLCHAIN_FILE":"cmake/toolchain-arm-none-eabi.cmake",
@@ -28,7 +30,7 @@
 
         // Select LoRaMac sub project. You can choose between:
         // classA, classB or classC, periodic-uplink-lpp, fuota-test-01.
-        "SUB_PROJECT":"periodic-uplink-lpp",
+        "SUB_PROJECT":"classC",
 
         // Switch for Class B support of LoRaMac:
         "CLASSB_ENABLED":"ON",
@@ -36,7 +38,7 @@
         // Select the active region for which the stack will be initialized.
         // You can choose between:
         // LORAMAC_REGION_EU868, LORAMAC_REGION_US915, ..
-        "ACTIVE_REGION":"LORAMAC_REGION_EU868",
+        "ACTIVE_REGION":"LORAMAC_REGION_IN865",
 
         // Select the type of modulation, applicable to the ping-pong or
         // rx-sensi applications. You can choose between:
@@ -50,11 +52,11 @@
         // MBED Radio shield selection. (Applies only to Nucleo platforms)
         // The following shields are supported:
         // SX1272MB2DAS, SX1276MB1LAS, SX1276MB1MAS, SX1261MBXBAS(Default), SX1262MBXCAS, SX1262MBXDAS.
-        "MBED_RADIO_SHIELD":"SX1261MBXBAS",
+        "MBED_RADIO_SHIELD":"SX1262MBXDAS",
 
         // Region support activation, Select the ones you want to support.
         // By default only REGION_EU868 support is enabled.
-        "REGION_EU868":"ON",
+        "REGION_EU868":"OFF",
         "REGION_US915":"OFF",
         "REGION_CN779":"OFF",
         "REGION_EU433":"OFF",
@@ -62,7 +64,7 @@
         "REGION_AS923":"OFF",
         "REGION_CN470":"OFF",
         "REGION_KR920":"OFF",
-        "REGION_IN865":"OFF",
+        "REGION_IN865":"ON",
         "REGION_RU864":"OFF"
     }
 }

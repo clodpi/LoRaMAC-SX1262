@@ -47,20 +47,20 @@
  */
 #define RADIO_RESET                                 PA_0
 
-#define RADIO_MOSI                                  PA_7
-#define RADIO_MISO                                  PA_6
-#define RADIO_SCLK                                  PA_5
+#define RADIO_MOSI                                  PB_15
+#define RADIO_MISO                                  PB_14
+#define RADIO_SCLK                                  PB_13
 
 #if defined( SX1261MBXBAS ) || defined( SX1262MBXCAS ) || defined( SX1262MBXDAS )
 
-#define RADIO_NSS                                   PA_8
+#define RADIO_NSS                                   PB_12
 #define RADIO_BUSY                                  PB_3
 #define RADIO_DIO_1                                 PB_4
 
-#define RADIO_ANT_SWITCH_POWER                      PA_9
-#define RADIO_FREQ_SEL                              PA_1
-#define RADIO_XTAL_SEL                              PB_0
-#define RADIO_DEVICE_SEL                            PA_4
+#define RADIO_ANT_SWITCH_POWER                      PB_10
+//#define RADIO_FREQ_SEL                              PA_1
+//#define RADIO_XTAL_SEL                              PB_0
+//#define RADIO_DEVICE_SEL                            PA_4
 
 #define LED_1                                       PC_1
 #define LED_2                                       PC_0
